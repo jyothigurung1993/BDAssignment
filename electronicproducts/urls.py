@@ -21,6 +21,6 @@ from .userapp import urls as user_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('electronics/', include(electronicapp_urls)),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('home/', include(user_urls)),
+    path('auth/', include(user_urls)),
 ]
+

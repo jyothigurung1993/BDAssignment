@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.core import serializers
 from django.http import HttpResponse
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.serializers import TokenVerifySerializer
 
 from .models import ProductDetail, MobileDetail, LaptopDetail
 
@@ -12,6 +14,8 @@ from .models import ProductDetail, MobileDetail, LaptopDetail
 """ Creating class to perform CRUD operations on the data"""
 """ This class will perform creation of product details and we can fetch all the product details"""
 class ElectronicProducts(APIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = TokenVerifySerializer
     """
     The below get function will list all the product details.
     It does not take any parameter
@@ -108,6 +112,8 @@ class ElectronicProducts(APIView):
 
 
 class ElectronicProduct(APIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = TokenVerifySerializer
     """
         The below get function will list the product details of specified product id
         It take product_id as parameter
