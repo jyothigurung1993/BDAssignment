@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e1bcd26-fa67-4055-b25d-9269da580d50" name="Changes" comment="create unit test cases in django">
+    <list default="true" id="9e1bcd26-fa67-4055-b25d-9269da580d50" name="Changes" comment="change the response format">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electronicproducts/electronicsapp/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/electronicproducts/electronicsapp/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electronicproducts/electronicsapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/electronicproducts/electronicsapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643717747584</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="change the response format">
+      <created>1643721467737</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1643721467737</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,7 +119,8 @@
     <MESSAGE value="Add docstrings to all the views created" />
     <MESSAGE value="Create login api and register API" />
     <MESSAGE value="create unit test cases in django" />
-    <option name="LAST_COMMIT_MESSAGE" value="create unit test cases in django" />
+    <MESSAGE value="change the response format" />
+    <option name="LAST_COMMIT_MESSAGE" value="change the response format" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

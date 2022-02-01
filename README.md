@@ -1,12 +1,15 @@
 # BDAssignment
-install python
-install mysql
-create "electronics" database in mysql
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-python manage.py createsuperuser
-    - Enter Username
-    - Enter Email address
-    - Enter Password
-    - Enter Password (again)
+<pre>
+
+     install python <br />
+     install mysql <br />
+     create "electronics" database in mysql <br />
+     pip install -r requirements.txt <br />
+     python manage.py migrate <br />
+     python manage.py runserver <br />
+     python manage.py createsuperuser <br />
+            - Enter Username     <br />
+            - Enter Email address<br />
+            - Enter Password<br />
+            - Enter Password (again)<br />
+</pre>
