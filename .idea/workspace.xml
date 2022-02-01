@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e1bcd26-fa67-4055-b25d-9269da580d50" name="Changes" comment="write readme">
+    <list default="true" id="9e1bcd26-fa67-4055-b25d-9269da580d50" name="Changes" comment="Add docstring comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electronicproducts/electronicsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/electronicproducts/electronicsapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/electronicproducts/electronicsapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/electronicproducts/electronicsapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electronicproducts/userapp/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/electronicproducts/userapp/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electronicproducts/userapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/electronicproducts/userapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronicproducts/userapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/electronicproducts/userapp/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643721804014</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add docstring comments">
+      <created>1643723431842</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1643723431842</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,7 +136,8 @@
     <MESSAGE value="create unit test cases in django" />
     <MESSAGE value="change the response format" />
     <MESSAGE value="write readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="write readme" />
+    <MESSAGE value="Add docstring comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add docstring comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
