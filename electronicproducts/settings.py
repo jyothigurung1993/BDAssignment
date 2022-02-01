@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+
+    # user defined packages
+    'electronicproducts.electronicsapp',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +59,7 @@ ROOT_URLCONF = 'electronicproducts.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'electronicproducts/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,12 +78,29 @@ WSGI_APPLICATION = 'electronicproducts.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+MYSQL_DB_HOST = os.environ.get('MYSQL_DB_HOST', 'localhost')
+MYSQL_DB_PORT = os.environ.get('MYSQL_DB_PORT', '3306')
+MYSQL_DB_USER = os.environ.get('MYSQL_DB_USER', 'root')
+MYSQL_DB_PWD = os.environ.get('MYSQL_DB_PWD', 'root')
+MYSQL_DB_MAIN_DBNAME = os.environ.get('MYSQL_DB_MAIN_DBNAME', 'electronics')
+MYSQL_DB_TEST_DBNAME = os.environ.get('MYSQL_DB_TEST_DBNAME', 'test_electronics')
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': MYSQL_DB_MAIN_DBNAME,
+       'USER': MYSQL_DB_USER,
+       'PASSWORD': MYSQL_DB_PWD,
+       'HOST': MYSQL_DB_HOST,
+       'PORT': MYSQL_DB_PORT,
+       'TEST': {
+            'NAME': MYSQL_DB_TEST_DBNAME,
+            'USER': MYSQL_DB_USER,
+            'PASSWORD': MYSQL_DB_PWD
+       }
+    },
 }
+
 
 
 # Password validation
@@ -121,3 +143,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    os.path.join('electronicproducts/', 'static'),
+]
