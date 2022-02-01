@@ -2,10 +2,13 @@ from django.db import models
 from electronicproducts.common_utils import ModelEnum
 
 # Create your models here.
+
+""" ENUM for product types """
 class ProductType(ModelEnum):
     MOBILE = "Mobile"
     LAPTOP = "Laptop"
 
+""" creating a class to store created_at and updated_at when extended in other class models """
 class TimestampedModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
@@ -13,7 +16,9 @@ class TimestampedModel(models.Model):
     class Meta:
         abstract = True
 
-
+"""
+Create model for storing Product details
+"""
 class ProductDetail(TimestampedModel):
     name = models.TextField()
     description = models.TextField()
@@ -26,6 +31,10 @@ class ProductDetail(TimestampedModel):
         return self.name+" - "+self.type
 
 
+""" 
+Create model for storing additional mobile details when product type is mobile
+foreign key to ProductDetail model
+"""
 class MobileDetail(TimestampedModel):
     product = models.ForeignKey(ProductDetail, on_delete=models.CASCADE)
     processor = models.TextField()
@@ -48,7 +57,10 @@ class MobileDetail(TimestampedModel):
     def get_mobile_details_by_product_id(cls, product_id):
         return MobileDetail.objects.select_related('product').filter(product_id=product_id).first
 
-
+"""
+Create model for storing additional laptop details when product type is laptop
+foreign key to ProductDetail model
+"""
 class LaptopDetail(TimestampedModel):
     product = models.ForeignKey(ProductDetail, on_delete=models.CASCADE)
     processor = models.TextField()
