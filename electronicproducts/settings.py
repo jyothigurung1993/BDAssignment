@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
+    'ajax_select',
 
     # user defined packages
     'electronicproducts.electronicsapp',
+    'electronicproducts.userapp',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +58,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'electronicproducts.urls'
+
+#AUTH_USER_MODEL = 'userapp.User'
 
 TEMPLATES = [
     {

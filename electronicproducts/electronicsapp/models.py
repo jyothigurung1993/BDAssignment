@@ -22,23 +22,50 @@ class ProductDetail(TimestampedModel):
     class Meta:
         db_table = "product_details"
 
+    def __str__(self):
+        return self.name+" - "+self.type
+
 
 class MobileDetail(TimestampedModel):
     product = models.ForeignKey(ProductDetail, on_delete=models.CASCADE)
     processor = models.TextField()
     ram = models.CharField(max_length=100)
-    screen_size = models.TextField()
+    screen_size = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
 
     class Meta:
         db_table = "mobile_details"
+        default_related_name = 'mobiles'
+
+    def __str__(self):
+        return self.product.name+"-"+self.color
+
+    @classmethod
+    def get_mobile_details(cls, product):
+        return MobileDetail.objects.select_related('product').filter(product=product).first
+
+    @classmethod
+    def get_mobile_details_by_product_id(cls, product_id):
+        return MobileDetail.objects.select_related('product').filter(product_id=product_id).first
 
 
 class LaptopDetail(TimestampedModel):
     product = models.ForeignKey(ProductDetail, on_delete=models.CASCADE)
     processor = models.TextField()
     ram = models.CharField(max_length=100)
-    hd_capacity = models.TextField()
+    hd_capacity = models.CharField(max_length=100)
 
     class Meta:
         db_table = "laptop_details"
+        default_related_name = 'laptops'
+
+    def __str__(self):
+        return self.product.name+ "-" +self.hd_capacity
+
+    @classmethod
+    def get_laptop_details(cls, product):
+        return LaptopDetail.objects.select_related('product').filter(product=product).first
+
+    @classmethod
+    def get_mobile_details_by_product_id(cls, product_id):
+        return MobileDetail.objects.select_related('product').filter(product_id=product_id).first
