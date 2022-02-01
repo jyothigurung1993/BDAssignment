@@ -11,21 +11,20 @@ class TestElectronicProducts(TestCase):
         ProductDetail.objects.create(name='Redmi 6', description='Redmi new model of cell for demo purpose', type='mobile')
 
     def test_create_mobile(self):
-        mobile = MobileDetail.objects.create(product_id=1, processor="xyz", ram="2gb", screen_size="16*15", color="blue")
+        product = ProductDetail.objects.get(id=1)
+        MobileDetail.objects.create(product=product, processor="xyz", ram="2gb", screen_size="16*15", color="blue")
+        mobile = MobileDetail.objects.get(product_id=1)
         self.assertEqual(mobile.color, 'blue')
 
     def test_create_laptop(self):
-        laptop = LaptopDetail.objects.create(product_id=1, processor="xyz", ram="2gb", hd_capacity="500gb")
+        product = ProductDetail.objects.get(id=1)
+        LaptopDetail.objects.create(product=product, processor="xyz", ram="2gb", hd_capacity="500gb")
+        laptop = LaptopDetail.objects.get(product_id=1)
         self.assertEqual(laptop.ram, '2gb')
 
     def test_name_label(self):
         product = ProductDetail.objects.get(id=1)
         self.assertEqual(product.name, 'Redmi 6')
-
-    def test_name_max_length(self):
-        product = ProductDetail.objects.get(id=1)
-        max_length = product._meta.get_field('name').max_length
-        self.assertEqual(max_length, 100)
 
     def test_product_type(self):
         product = ProductDetail.objects.get(id=1)
@@ -46,9 +45,9 @@ class ElectronicProductsViewTest(TestCase):
             )
 
     def test_view_url_exists(self):
-        response = self.client.get('/electronics/products/')
+        response = self.client.get('electronics/products/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_for_product(self):
-        response = self.client.get(reverse('/electronics/product/1)'))
+        response = self.client.get(reverse('electronics/product/1)'))
         self.assertEqual(response.status_code, 200)

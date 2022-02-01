@@ -104,7 +104,7 @@ class ElectronicProducts(APIView):
                 laptop = LaptopDetail(product=product, processor=processor, ram=ram, hd_capacity=hd_capacity)
                 laptop.save()
 
-            return HttpResponse("Success")
+            return HttpResponse(json.dumps({'status': "SUCCESSFULLY CREATED RECORD"}))
         except Exception as e:
             return HttpResponse(json.dumps({
                     'status': 400,
@@ -224,7 +224,7 @@ class ElectronicProduct(APIView):
                     if hd_capacity:
                         laptop.hd_capacity = hd_capacity
                         laptop.save()
-            return HttpResponse("Success")
+            return HttpResponse(json.dumps({'status': "SUCCESSFULLY UPDATED RECORD"}))
         except Exception as e:
             return HttpResponse(json.dumps({
                     'status': 400,
@@ -244,7 +244,7 @@ class ElectronicProduct(APIView):
             product = ProductDetail.objects.filter(id=product_id)
             if product:
                 product.delete()
-                return HttpResponse("Success")
+                return HttpResponse(json.dumps({'status': "SUCCESSFULLY DELETED RECORD"}))
             else:
                 return HttpResponse("Un-Successful", status=400)
         except Exception as e:
